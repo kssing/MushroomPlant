@@ -1,0 +1,46 @@
+<div class="plant-production-container">
+    <h2>Plant Production Management</h2>
+    
+    <form (submit)="addProduction()">
+      <label>Batch Name:</label>
+      <input type="text"  class="form-control"  [(ngModel)]="newProduction.batchName" name="batchName" required>
+
+      <label>Room Detail:</label>
+      <select [(ngModel)]="newProduction.roomId" class="form-control"  name="expectedStageId" required>
+        <option *ngFor="let room of rooms" [value]="room.id">{{ room.roomName }}</option>
+      </select>
+      
+      <label>Quantity:</label>
+      <input type="number" class="form-control"  [(ngModel)]="newProduction.quantity" name="quantity" required>
+      
+      <label>Expected Stage:</label>
+      <select [(ngModel)]="newProduction.expectedStageId" name="expectedStageId" class="form-control"  required>
+        <option *ngFor="let stage of stages" [value]="stage.id">{{ stage.stageName }}</option>
+      </select>
+
+      
+      
+      <label>Actual Stage:</label>
+      <select [(ngModel)]="newProduction.actualStageId" name="actualStageId" class="form-control" >
+        <option *ngFor="let stage of stages" [value]="stage.id">{{ stage.stageName }}</option>
+      </select>
+      
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="newProduction.startDate" name="startDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <button class="btn btn-primary"  type="submit">Add Production</button>
+    </form>
+    
+    <ul>
+      <li *ngFor="let production of productions">
+        {{ production.batchName }} (Quantity: {{ production.quantity }}) - Expected: {{ production.expectedStage?.stageName }}, Actual: {{ production.actualStage?.stageName }}
+        <button (click)="deleteProduction(production.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  

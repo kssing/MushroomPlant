@@ -1,0 +1,8 @@
+<div class="card" *ngFor="let activity of activities">
+    <h5 class="card-header">{{activity.activityName}}</h5>
+    <div class="card-body">
+      <h5 class="card-title"> activityType {{activity.activityType}} </h5>
+      <p class="card-text">{{activity.activityDescription}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>

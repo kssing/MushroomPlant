@@ -1,0 +1,6 @@
+<div *ngIf="activityDetail.length > 0">
+    activityDetail
+</div>
+<div *ngIf="activityDetail.length == 0">buildTodayActivityInstance
+    Currently don't have any planned activity . please generate todays activity 
+        <button  (click)= "buildTodayActivityInstance()" class="btn btn-primary"  >buildTodayActivityInstance</button></div>

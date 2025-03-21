@@ -1,0 +1,31 @@
+<div class="room-container">
+    <h2>Room Management</h2>
+    
+    <form (submit)="addRoom()">
+      <label>Room Name:</label>
+      <input type="text" [(ngModel)]="newRoom.roomName" name="roomName" required>
+    
+      <label>Capacity:</label>
+      <input type="number" [(ngModel)]="newRoom.roomCapacity" name="roomCapacity" required>
+      
+      <label>Length:</label>
+      <input type="number" [(ngModel)]="newRoom.roomLength" name="roomLength" required>
+      
+      <label>Width:</label>
+      <input type="number" [(ngModel)]="newRoom.roomWidth" name="roomWidth" required>
+      
+      <label>Height:</label>
+      <input type="number" [(ngModel)]="newRoom.roomHeight" name="roomHeight" required>
+      
+      <button type="submit">Add Room</button>
+    </form>
+    
+    <ul>
+      <li *ngFor="let room of rooms">
+        {{ room.roomName }} (Capacity: {{ room.roomCapacity }})
+        <button (click)="deleteRoom(room.id)">Delete</button>
+        <button (click)="editRoom(room)">editRoom</button>
+      </li>
+    </ul>
+  </div>
+  

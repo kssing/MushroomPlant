@@ -1,0 +1,30 @@
+<div class="stage-container">
+    <h2>Stage Management</h2>
+    
+    <form (submit)="addStage()">
+      <label>Stage Name:</label>
+      <input type="text" [(ngModel)]="newStage.stageName" name="stageName" required>
+      
+      <label>Description:</label>
+      <input type="text" [(ngModel)]="newStage.stageDescription" name="stageDescription" required>
+      
+      <label>Temperature:</label>
+      <input type="number" [(ngModel)]="newStage.temperature" name="temperature" required>
+      
+      <label>Humidity:</label>
+      <input type="number" [(ngModel)]="newStage.humidity" name="humidity" required>
+      
+      <label>CO2 Level:</label>
+      <input type="number" [(ngModel)]="newStage.co2Level" name="co2Level" required>
+      
+      <button type="submit">Add Stage</button>
+    </form>
+    
+    <ul>
+      <li *ngFor="let stage of stages">
+        {{ stage.stageName }} - {{ stage.stageDescription }}
+        <button (click)="deleteStage(stage.id)">Delete</button>
+        <button (click)="editStage(stage)">editStage</button>
+      </li>
+    </ul>
+  </div>
